@@ -1,0 +1,19 @@
+<!--  <h2>{{hero}}</h2> --> <!-- 第一步 資料連結到 heros.component 屬性 -->
+<!-- 第二步 資料連結到 heros.ts interface 的物件屬性，並用 pipe 變大寫 -->
+<h2> {{hero_.name | uppercase}} Details </h2>
+<div><span>id: </span>{{hero_.id}}</div>
+<div><span>name: </span>{{hero_.name}}</div>
+<!-- 第三步 使用雙向繫結，在 app.modules.ts  import FormsModule  -->
+<div>
+  <label for="name">Hero name: </label>
+  <input id="name" [(ngModel)]="hero_.name" placeholder="name">
+</div>
+<!-- 第二節 使用ngFor顯示資料  -->
+<h2>My Heroes</h2>
+<!---->
+<ul class="heroes">
+  <li *ngFor="let hero of heroes">
+    <span class="badge">{{hero.id}}</span> {{hero.name}}
+  </li>
+</ul>
+
