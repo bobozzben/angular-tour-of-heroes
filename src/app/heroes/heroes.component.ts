@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Hero } from '../hero';
+import { Hero ,_Hero } from '../hero'; // 匯入2個以上的 Interface
+
 // import { HEROES } from '../mock-heroes'; 修改成使用 Service 方式，這裏不用再import 改 import HeroService
 import { HeroService } from '../hero.service';
 import { MessageService } from './../message.service';
@@ -12,7 +13,7 @@ import { MessageService } from './../message.service';
 })
 export class HeroesComponent implements OnInit {
   // property
-  hero_: Hero = { id: 1, name: 'Windstorm' };  // 使用 hero.ts 的 interface ,在此加入一筆資料 hero_ 第一節用
+  hero_: _Hero = { id: 1, name: 'Windstorm' };  // 使用 hero.ts 的 interface ,在此加入一筆資料 hero_ 第一節用
   // heroes = HEROES; 修改成使用 Service 方式
   heroes: Hero[] = [];
   selectedHero?: Hero;
