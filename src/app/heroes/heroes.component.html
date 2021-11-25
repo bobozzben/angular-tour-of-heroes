@@ -1,4 +1,5 @@
-<!--  <h2>{{hero}}</h2> --> <!-- 第一步 資料連結到 heros.component 屬性 -->
+<!--  <h2>{{hero}}</h2> -->
+<!-- 第一步 資料連結到 heros.component 屬性 -->
 <!-- 第二步 資料連結到 heros.ts interface 的物件屬性，並用 pipe 變大寫 -->
 <h2> {{hero_.name | uppercase}} Details </h2>
 <div><span>id: </span>{{hero_.id}}</div>
@@ -10,10 +11,23 @@
 </div>
 <!-- 第二節 使用ngFor顯示資料  -->
 <h2>My Heroes</h2>
-<!---->
+<!--加入 Click 事件並顯示細項資料，[class.selected]是指定被點選後的CSS樣式 -->
 <ul class="heroes">
-  <li *ngFor="let hero of heroes">
+  <li *ngFor="let hero of heroes" (click)="onSelect(hero)" [class.selected]="hero === selectedHero">
     <span class="badge">{{hero.id}}</span> {{hero.name}}
   </li>
 </ul>
-
+<!--使用 ngIf 檢查資料 undefined 時不要加入 DOM -->
+<!-- 第3節建立元件，將小功能獨立一個 component 的範例，此塊移至 hero-detail
+<div *ngIf="selectedHero">
+  <h2>{{selectedHero.name | uppercase}} Details</h2>
+  <div><span>id: </span>{{selectedHero.id}}</div>
+  <div>
+    <label for="hero-name">Hero name: </label>
+    <input id="hero-name" [ngModel]="selectedHero.name" placeholder="name">
+  </div>
+</div>
+-->
+<!-- [hero]="selectedHero" 是單向繫結，由自已的屬性放到另一個元件的屬性，這裏是由 HeroesComponent.selectedHero
+    HeroDetailComponent.hero   -->
+<app-hero-detail [hero]="selectedHero"></app-hero-detail>
