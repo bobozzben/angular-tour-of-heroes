@@ -12,7 +12,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 //這會告訴路由器把該 URL 與 path：'heroes' 匹配。 如果網址類似於 localhost:4200/heroes 就顯示 HeroesComponent。
 const routes: Routes = [
   { path: 'heroes', component: HeroesComponent },
-  { path: 'dashboard', component: DashboardComponent }
+  { path: 'dashboard', component: DashboardComponent },
+  { path: '', redirectTo: '/dashboard', pathMatch: 'full' }  // 新增預設路由
 ];
 
 @NgModule({ // @NgModule 元資料會初始化路由器，並開始監聽瀏覽器地址的變化。

@@ -3,6 +3,7 @@
 <app-heroes></app-heroes>  -->
 <!-- 第五節 新增路由出口 RouterOutlet，AppComponent 的範本不再需要 <app-heroes>，因為只有當用戶導航到這裡時，才需要顯示 HeroesComponent。-->
 <nav>
+  <a routerLink="/dashboard">Dashboard</a>
   <a routerLink="/heroes">Heroes</a>
 </nav>
 <router-outlet></router-outlet> <!-- <router-outlet> 會告訴路由器要在哪裡顯示路由的檢視。 -->
