@@ -11,10 +11,10 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 //  component: 導航到該路由時，路由器應該建立的元件。
 //這會告訴路由器把該 URL 與 path：'heroes' 匹配。 如果網址類似於 localhost:4200/heroes 就顯示 HeroesComponent。
 const routes: Routes = [
-  { path: 'heroes', component: HeroesComponent }, // 英雄列表的頁面
+  { path: '', redirectTo: '/dashboard', pathMatch: 'full' },  // 新增預設路由
   { path: 'dashboard', component: DashboardComponent }, //儀表盤頁面
   { path: 'detail/:id', component: HeroDetailComponent }, // 可在網址上輸入id並導到該頁
-  { path: '', redirectTo: '/dashboard', pathMatch: 'full' }  // 新增預設路由
+  { path: 'heroes', component: HeroesComponent }, // 英雄列表的頁面
 ];
 
 @NgModule({ // @NgModule 元資料會初始化路由器，並開始監聽瀏覽器地址的變化。

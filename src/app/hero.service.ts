@@ -4,7 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';  //使用 HttpCl
 import { catchError, map, tap } from 'rxjs/operators';
 
 import { Hero } from './hero';
-import { HEROES } from './mock-heroes';
+//import { HEROES } from './mock-heroes';
 // 在這個 Services 使用其他的 Services
 import { MessageService } from './message.service';
 
@@ -15,11 +15,12 @@ import { MessageService } from './message.service';
 export class HeroService {
   // 把伺服器上英雄資料資源的訪問地址 heroesURL 定義為 :base/:collectionName 的形式。 這裡的 base 是要請求的資源，而 collectionName 是 in-memory-data-service.ts 中的英雄資料物件。
   private heroesUrl = 'api/heroes';
+  httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) };
 
   constructor(private http: HttpClient,   //使用 HttpClient
     private messageService: MessageService) { }  //建構函式，注入其他的 Service (一個典型的“服務中的服務”場景)
 
-  private log(message: string) {
+  public log(message: string) {
     this.messageService.add(`HeroService: ${message}`);
   }
   // 在 HTTP 課程中，你將會呼叫 HttpClient.get<Hero[]>() 它也同樣返回一個 Observable<Hero[]>，它也會發出單個值，這個值就是來自 HTTP 回應內文中的英雄陣列。
@@ -71,10 +72,9 @@ export class HeroService {
     );
   }
   // 更新回去的函式
-  httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) };
   updateHero(hero: Hero): Observable<any> {
     return this.http.put(this.heroesUrl, hero, this.httpOptions).pipe(
-      tap(_ => this.log(`updated hero id=${hero.id}`)),
+      tap(_ => this.log(`updated hero id=${hero.id} name=${hero.name}`)),
       catchError(this.handleError<any>('updateHero'))
     );
   }
