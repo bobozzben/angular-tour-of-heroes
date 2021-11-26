@@ -29,8 +29,8 @@ import { HeroSearchComponent } from './hero-search/hero-search.component';
     BrowserModule,
     FormsModule,  //  NgModel 雙向資料繫結要匯入
     AppRoutingModule,  // app-routing.module.ts
-    // 以下是模擬 Http 遠端取得資料使用的服務
     HttpClientModule,
+    // 以下是模擬 Http 遠端取得資料使用的服務
     HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService,{dataEncapsulation:false})
   ],
   providers: [],
