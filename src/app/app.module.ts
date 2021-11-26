@@ -23,7 +23,6 @@ import { InMemoryDataService } from './in-memory-data.service';
     DashboardComponent
   ],
   imports: [
-    InMemoryDataService,
     BrowserModule,
     FormsModule,  //  NgModel 雙向資料繫結要匯入
     AppRoutingModule,  // app-routing.module.ts
