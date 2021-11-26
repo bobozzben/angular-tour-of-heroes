@@ -1,6 +1,7 @@
 <h2>Top Heroes</h2>
 <div class="heroes-menu">
-  <a *ngFor="let hero of heroes">
-    {{hero.name}}
+  <a *ngFor="let hero of heroes"
+      routerLink="/detail/{{hero.id}}"> <!--使用 ruoterLink 連到到英雄詳細資料畫面-->
+      {{hero.name}}
   </a>
 </div>

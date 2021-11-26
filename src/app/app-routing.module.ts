@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router'; // 匯入 RouterModule 和 Routes，以便該應用具有路由功能
 
 import { HeroesComponent } from './heroes/heroes.component'; // 匯入 HeroesComponent，它將告訴路由器要去什麼地方
+import { HeroDetailComponent } from './hero-detail/hero-detail.component'; // 第五節儀表盤使用，可在網址上輸入id並導到該頁
 import { DashboardComponent } from './dashboard/dashboard.component';
-
 
 //這一部分是你的路由配置。 Routes 告訴路由器，當用戶單擊連結或將 URL 貼上進瀏覽器位址列時要顯示哪個檢視。
 //典型的 Angular Route 具有兩個屬性：
@@ -11,8 +11,9 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 //  component: 導航到該路由時，路由器應該建立的元件。
 //這會告訴路由器把該 URL 與 path：'heroes' 匹配。 如果網址類似於 localhost:4200/heroes 就顯示 HeroesComponent。
 const routes: Routes = [
-  { path: 'heroes', component: HeroesComponent },
-  { path: 'dashboard', component: DashboardComponent },
+  { path: 'heroes', component: HeroesComponent }, // 英雄列表的頁面
+  { path: 'dashboard', component: DashboardComponent }, //儀表盤頁面
+  { path: 'detail/:id', component: HeroDetailComponent }, // 可在網址上輸入id並導到該頁
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' }  // 新增預設路由
 ];
 
