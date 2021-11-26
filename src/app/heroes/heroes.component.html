@@ -11,6 +11,14 @@
 </div>
 <!-- 第二節 使用ngFor顯示資料  -->
 <h2>My Heroes</h2>
+<!-- 第六節 新增的功能  -->
+<div>
+  <label for="new-hero">Hero name: </label>
+  <input id="new-hero" #heroName />
+  <button class="add-button" (click)="add(heroName.value); heroName.value=''" > Add hero </button>
+</div>
+
+
 <!--加入 Click 事件並顯示細項資料，[class.selected]是指定被點選後的CSS樣式 -->
 <ul class="heroes">
   <!-- 第四節用，沒有使用routerLink 的點選及連結
@@ -22,6 +30,7 @@
   <li *ngFor="let hero of heroes">
     <a routerLink="/detail/{{hero.id}}">
       <span class="badge">{{hero.id}}</span> {{hero.name}}
+      <button class="delete" title="delete hero" (click)="delete(hero)">x</button>
     </a>
   </li>
 </ul>
@@ -40,3 +49,4 @@
 <!-- [hero]="selectedHero" 是單向繫結，由自已的屬性放到另一個元件的屬性，這裏是由 HeroesComponent.selectedHero
     HeroDetailComponent.hero   -->
 <!--  <app-hero-detail [hero]="selectedHero"></app-hero-detail> 第五節不用 -->
+

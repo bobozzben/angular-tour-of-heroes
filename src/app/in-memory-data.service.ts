@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { InMemoryDbService } from 'angular-in-memory-web-api';
 import { Hero } from './hero';
 
+// 模擬 Http 遠端取得資料使用的服務
+
 @Injectable({
   providedIn: 'root',
 })

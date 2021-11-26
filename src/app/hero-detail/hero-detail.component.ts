@@ -29,11 +29,17 @@ export class HeroDetailComponent implements OnInit {
     // route.snapshot 是一個路由資訊的靜態快照，抓取自元件剛剛建立完畢之後。
     // paramMap 是一個從 URL 中提取的路由引數值的字典。 "id" 對應的值就是要獲取的英雄的 id。
     // 路由引數總會是字串。 JavaScript 的 Number 函式會把字串轉換成數字，英雄的 id 就是數字型別。
-    const id = Number(this.route.snapshot.paramMap.get('id'));
+    const id = parseInt(this.route.snapshot.paramMap.get('id')!,10);
     this.heroService.getHero(id)
       .subscribe(hero => this.hero = hero);
   }
   goBack(): void {
     this.location.back();
   }
+save():void{
+  if (this.hero) {
+    this.heroService.updateHero(this.hero).subscribe(()=>this.goBack());
+  }
+}
+
 }
