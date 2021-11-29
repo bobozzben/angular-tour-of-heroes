@@ -1,0 +1,22 @@
+<!-- {{diagnostic}} 要想確認雙向資料繫結是否在整個英雄模型上都有效，就要在該元件的頂部新增一個對 diagnostic 屬性的新繫結。 -->
+<form (submit)="onSubmit()" #heroForm="ngForm">
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input class="form-control" type="text" id="name" required [(ngModel)]="model.name" name="name" #name="ngModel">
+    <!-- 關於 "PRISTINE"（原始）狀態的說明,在這個例子中，當控制元件是有效的（valid）或者是原始的（pristine）時，你會隱藏這些訊息 -->
+    <div [hidden]="name.valid || name.pristine" class="alert alert-danger"> Name is required </div>
+  </div>
+  <div class="form-group">
+    <label for="alterEgo">Alter Ego</label>
+    <input class="form-control" type="text" id="alterEgo" [(ngModel)]="model.alterEgo" name="alterEgo">
+  </div>
+  <div class="form-group">
+    <label for="power">Hero Power</label>
+    <select class="form-control" id="power">
+      <option *ngFor="let pow of powers" [value]="pow">{{pow}}</option>
+    </select>
+  </div>
+  <div>
+    <button class="btn btn-default" type="button" (click)="newHero();heroForm.reset()">New Hero</button>
+  </div>
+</form>
