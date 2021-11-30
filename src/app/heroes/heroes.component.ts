@@ -26,7 +26,7 @@ export class HeroesComponent implements OnInit {
   //你固然可以在建構函式中呼叫 getHeroes()，但那不是最佳實踐。
   //讓建構函式保持簡單，只做最小化的初始化操作，比如把建構函式的引數賦值給屬性。 建構函式不應該做任何事。 它當然不應該呼叫某個函式來向遠端服務（比如真實的資料服務）發起 HTTP 請求。
   ngOnInit(): void {
-    this.getHeroes();
+    this.getHeroes();   // 呼叫本身的 getHeroes
   }
 
   // 範本點選會呼叫這裏，並傳入點選的項目

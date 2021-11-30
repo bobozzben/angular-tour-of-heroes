@@ -14,8 +14,9 @@ import { MessageService } from './message.service';
 })
 export class HeroService {
   // 把伺服器上英雄資料資源的訪問地址 heroesURL 定義為 :base/:collectionName 的形式。 這裡的 base 是要請求的資源，而 collectionName 是 in-memory-data-service.ts 中的英雄資料物件。
-  private heroesUrl = 'api/heroes';
-  httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) };
+  // private heroesUrl = 'api/heroes';
+  private heroesUrl = 'https://f238-111-240-100-155.ngrok.io/app?kind=2&prx=DM&xg3=33';
+  httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json;charset=UTF-8' }) };
 
   constructor(private http: HttpClient,   //使用 HttpClient
     private messageService: MessageService) { }  //建構函式，注入其他的 Service (一個典型的“服務中的服務”場景)
@@ -46,7 +47,8 @@ export class HeroService {
     }
   }
   getHeroNo404<Data>(id: number): Observable<Hero> {
-    const url = `${this.heroesUrl}/?id=${id}`;
+    // const url = `${this.heroesUrl}/?id=${id}`;
+    const url = `${this.heroesUrl}/?id=${id}`; // 改抓資料庫的 id
     return this.http.get<Hero[]>(url).pipe(
       map(heroes => heroes[0]), tap(h => {
         const outcome = h ? `fetched` : `did not find`;
