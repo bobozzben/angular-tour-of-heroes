@@ -20,22 +20,49 @@
 </div>
 
 
+<div>
+  <label for="searchprod">Locate for product name: </label>
+  <input id="searchprod" #searchprod />
+  <button class="search-button" (click)="search(searchprod.value); searchprod.value=''" > 尋找 </button>
+</div>
+
 <!--加入 Click 事件並顯示細項資料，[class.selected]是指定被點選後的CSS樣式 -->
 <ul class="heroes">
   <!-- 第四節用，沒有使用routerLink 的點選及連結
     <li *ngFor="let hero of heroes" (click)="onSelect(hero)" [class.selected]="hero === selectedHero">
     <span class="badge">{{hero.id}}</span> {{hero.name}}
   </li>-->
-
   <!-- 第五節使用 routerLink 的方式，列示被點選後會導向詳情的頁面 -->
   <li *ngFor="let hero of heroes">
     <a routerLink="/detail/{{hero.id}}">
-      <span class="badge">{{hero.id}}</span> {{hero.name}}
+      <span class="badge">{{hero.id}}</span> {{hero.prono}} <span>{{hero.name}}</span><span>{{hero.usedqty}}</span>
       <button class="delete" title="delete hero" (click)="delete(hero)">x</button>
     </a>
   </li>
 </ul>
+<table class="">
+  <thead class="thead-dark">
+    <tr>
+      <th>序</th>
+      <th>品號</th>
+      <th>品名</th>
+      <th>帳上數</th>
+      <th>可用數</th>
+    </tr>
+  </thead>
+  <tbody *ngFor="let hero of heroes">
+      <tr>
+        <th class="badge" scope="row">{{hero.id}}</th>
+        <td>{{hero.prono}}</td>
+        <td>{{hero.name}}</td>
+        <td align="right">{{hero.finqty | number}}</td>
+        <td align="right">{{hero.usedqty |number}}</td>
+      </tr>
+    </tbody>
 
+  <tbody>
+
+  </table>
 <!--使用 ngIf 檢查資料 undefined 時不要加入 DOM -->
 <!-- 第3節建立元件，將小功能獨立一個 component 的範例，此塊移至 hero-detail
 <div *ngIf="selectedHero">

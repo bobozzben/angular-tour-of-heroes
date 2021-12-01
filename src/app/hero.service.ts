@@ -15,7 +15,8 @@ import { MessageService } from './message.service';
 export class HeroService {
   // 把伺服器上英雄資料資源的訪問地址 heroesURL 定義為 :base/:collectionName 的形式。 這裡的 base 是要請求的資源，而 collectionName 是 in-memory-data-service.ts 中的英雄資料物件。
   // private heroesUrl = 'api/heroes';
-  private heroesUrl = 'https://f238-111-240-100-155.ngrok.io/app?kind=2&prx=DM&xg3=33';
+  private heroesUrl = 'https://d442-111-240-100-155.ngrok.io/app?kind=2&prx=DM&xg3=33';
+  private locateheroesUrl = 'https://d442-111-240-100-155.ngrok.io/app?kind=2';
   httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json;charset=UTF-8' }) };
 
   constructor(private http: HttpClient,   //使用 HttpClient
@@ -34,6 +35,19 @@ export class HeroService {
     return this.http.get<Hero[]>(this.heroesUrl)
       .pipe(
         tap(_ => this.log('fetched heroes')),
+        catchError(this.handleError<Hero[]>('getHeroes', []))
+      );
+  }
+  // 在 HTTP 課程中，你將會呼叫 HttpClient.get<Hero[]>() 它也同樣返回一個 Observable<Hero[]>，它也會發出單個值，這個值就是來自 HTTP 回應內文中的英雄陣列。
+  getHeroesUsedParam(name:string): Observable<Hero[]> {
+    //const heroes = of(HEROES);
+    //this.messageService.add('HeroService: fetched heroes');  //建構函式有宣告，這裏使用
+    //return heroes;
+    // 第六節改用 httpClient 取得資料
+    // 其它 API 可能在返回物件中深埋著你想要的資料。 你可能要藉助 RxJS 的 map() 運算子對 Observable 的結果進行處理，以便把這些資料探勘出來。
+    return this.http.get<Hero[]>(this.locateheroesUrl+"&prx="+name)
+      .pipe(
+        tap(_ => this.log('fetched locateheroesUrl products')),
         catchError(this.handleError<Hero[]>('getHeroes', []))
       );
   }

@@ -8,7 +8,11 @@ export interface _Hero {
 
 export interface Hero {
   id :number;
+  year :number;
+  prono:string;
   name :string;
+  finqty:number;
+  usedqty:number;
 }
 
 export class fHero {

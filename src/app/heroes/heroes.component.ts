@@ -55,4 +55,13 @@ export class HeroesComponent implements OnInit {
     this.heroService.deleteHero(hero.id).subscribe();
   }
 
+  modify(hero: Hero): void {
+
+  }
+  search(name:string): void {
+    this.heroService.getHeroesUsedParam(name)
+      .subscribe(heroes => this.heroes = heroes); //非同步取值
+
+  }
+
 }

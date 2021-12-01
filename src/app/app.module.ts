@@ -11,8 +11,8 @@ import { MessagesComponent } from './messages/messages.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 
 // 以下是模擬 Http 遠端取得資料使用的服務
-import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { InMemoryDataService } from './in-memory-data.service';
+//import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+//import { InMemoryDataService } from './in-memory-data.service';
 import { HeroSearchComponent } from './hero-search/hero-search.component';
 import { HeroFormComponent } from './hero-form/hero-form.component';
 
@@ -33,7 +33,7 @@ import { HeroFormComponent } from './hero-form/hero-form.component';
     AppRoutingModule,  // app-routing.module.ts
     HttpClientModule,
     // 以下是模擬 Http 遠端取得資料使用的服務
-    HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService,{dataEncapsulation:false})
+ //   HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService,{dataEncapsulation:false})
   ],
   providers: [],
   bootstrap: [AppComponent]
