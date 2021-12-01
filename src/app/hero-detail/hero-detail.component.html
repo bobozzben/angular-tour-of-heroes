@@ -6,6 +6,22 @@
     <label for="hero-name">Hero name: </label>
     <input id="hero-name" [(ngModel)]="hero.name" placeholder="Hero name">
   </div>
+  <div>
+    <label for="prod-no">品  號: </label>
+    <input id="prod-no" [(ngModel)]="hero.prono" placeholder="品號">
+  </div>
+  <div>
+    <label for="prod-name">品  名: </label>
+    <input id="prod-name" [(ngModel)]="hero.name" placeholder="品名">
+  </div>
+  <div>
+    <label for="prod-finqty">帳上數: </label>
+    <input id="prod-finqty" [(ngModel)]="hero.finqty" placeholder="帳上數">
+  </div>
+  <div>
+    <label for="prod-usedqty">可用數: </label>
+    <input id="prod-usedqty" [(ngModel)]="hero.usedqty" placeholder="可用數">
+  </div>
   <button (click)="goBack()">go back</button>
   <button (click)="save()">save</button>
 </div>

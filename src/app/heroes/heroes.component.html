@@ -53,8 +53,8 @@
   <tbody *ngFor="let hero of heroes">
       <tr>
         <th class="badge" scope="row">{{hero.id}}</th>
-        <td>{{hero.prono}}</td>
-        <td>{{hero.name}}</td>
+        <td><a routerLink="/detail2/{{hero.prono}}"> {{hero.prono}} </a></td>
+        <td><a routerLink="/detail2/{{hero.prono}}"> {{hero.name}} </a></td>
         <td align="right">{{hero.finqty | number}}</td>
         <td align="right">{{hero.usedqty |number}}</td>
       </tr>

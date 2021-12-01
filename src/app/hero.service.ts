@@ -87,6 +87,22 @@ export class HeroService {
       catchError(this.handleError<Hero>(`getHero id=${id}`))
     );
   }
+
+  getHeroUsedParam(name:string): Observable<Hero> {
+    /* 第六節改用 URL 取資料
+    const hero = HEROES.find(h => h.id === id)!;
+    // 樣板字面值:允許嵌入運算式的字串字面值,反引號 ( ` ) 用於定義 JavaScript 的 範本字串字面量，以便嵌入 id。
+    // https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Template_literals
+    this.messageService.add(`HeroService: fetched hero id=${id}`);
+    return of(hero); */
+    // 第六節改用 URL 取資料並有錯誤處理
+    const url = `${this.locateheroesUrl}&six=${name}`;
+    return this.http.get<Hero>(url).pipe(
+      tap(_ => this.log(`fetched product prono=${name}`)),
+      catchError(this.handleError<Hero>(`getHero prono=${name}`))
+    );
+  }
+
   // 更新回去的函式
   updateHero(hero: Hero): Observable<any> {
     return this.http.put(this.heroesUrl, hero, this.httpOptions).pipe(

@@ -14,6 +14,7 @@ const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },  // 新增預設路由
   { path: 'dashboard', component: DashboardComponent }, //儀表盤頁面
   { path: 'detail/:id', component: HeroDetailComponent }, // 可在網址上輸入id並導到該頁
+  { path: 'detail2/:prono', component: HeroDetailComponent }, // prono 是參數名稱， 可在網址上輸入id並導到該頁
   { path: 'heroes', component: HeroesComponent }, // 英雄列表的頁面
 ];
 
