@@ -15,8 +15,8 @@ import { MessageService } from './message.service';
 export class HeroService {
   // 把伺服器上英雄資料資源的訪問地址 heroesURL 定義為 :base/:collectionName 的形式。 這裡的 base 是要請求的資源，而 collectionName 是 in-memory-data-service.ts 中的英雄資料物件。
   // private heroesUrl = 'api/heroes';
-  private heroesUrl = 'https://d442-111-240-100-155.ngrok.io/app?kind=2&prx=DM&xg3=33';
-  private locateheroesUrl = 'https://d442-111-240-100-155.ngrok.io/app?kind=2';
+  private heroesUrl = 'https://201c-111-240-112-77.ngrok.io/app?kind=2&prx=DM&xg3=33';
+  private locateheroesUrl = 'https://201c-111-240-112-77.ngrok.io/app?kind=2';
   httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json;charset=UTF-8' }) };
 
   constructor(private http: HttpClient,   //使用 HttpClient
