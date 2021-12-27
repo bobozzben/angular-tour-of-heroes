@@ -16,10 +16,10 @@ export class HeroService {
   // 把伺服器上英雄資料資源的訪問地址 heroesURL 定義為 :base/:collectionName 的形式。 這裡的 base 是要請求的資源，而 collectionName 是 in-memory-data-service.ts 中的英雄資料物件。
   // 注意：伺服器必須開啟 跨域資源共享 (CORS) 允許您的 Web 服務器接受和服務來自其他域的請求
   // private heroesUrl = 'api/heroes';
-   private myurl = "https://8f53-111-240-121-96.ngrok.io";  //windows
+   private myurl = "https://1a46-111-240-114-204.ngrok.io";  //windows
   //private myurl = "https://5534-111-240-121-96.ngrok.io";  // ubuntu
-  private heroesUrl = this.myurl + '/app?kind=2&prx=DM&xg3=33';
-  private locateheroesUrl = this.myurl +'/app?kind=2';
+  private heroesUrl = this.myurl + '/app?kind=1&prx=DM&xg3=33';
+  private locateheroesUrl = this.myurl +'/app?kind=1';
   private heroesUpdateUrl = this.myurl + '/app/1';
   httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json;charset=UTF-8' }) };
 
