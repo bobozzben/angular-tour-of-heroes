@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "myapplication4-ec0d4": {
+      "hosting": {
+        "angular-tour-of-heroes": [
+          "myapplication4-ec0d4"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "myapplication4-ec0d4"
+  }
+}
