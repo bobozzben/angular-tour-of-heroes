@@ -11,7 +11,8 @@ s<div class="example-container mat-elevation-z8">
                  [errorStateMatcher]="matcher">
         </label>
         <mat-error>
-          <span *ngIf="!loginForm.get('username').valid && loginForm.get('username').touched">Please enter Username</span>
+          <!-- Object is possibly 'null'.ngtsc(2531) 表示對象可以為 null ，要使用安全導航操作符號？ -->
+          <span *ngIf="!loginForm.get('username')?.valid && loginForm.get('username')?.touched">Please enter Username</span>
         </mat-error>
       </mat-form-field>
       <mat-form-field class="example-full-width">
@@ -20,7 +21,7 @@ s<div class="example-container mat-elevation-z8">
                  [errorStateMatcher]="matcher">
         </label>
         <mat-error>
-          <span *ngIf="!loginForm.get('password').valid && loginForm.get('password').touched">Please enter Password</span>
+          <span *ngIf="!loginForm.get('password')?.valid && loginForm.get('password')?.touched">Please enter Password</span>
         </mat-error>
       </mat-form-field>
       <div class="button-row">

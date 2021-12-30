@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';  //  NgModel 雙向資料繫結要匯入
+import { FormsModule ,ReactiveFormsModule} from '@angular/forms';  //  NgModel 雙向資料繫結要匯入
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -20,21 +20,21 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { environment } from '../environments/environment';
 import { initFirebaseBackend } from './authUtils';
-
-import {MatInputModule} from '@angular/material/input';
-import {MatPaginatorModule} from '@angular/material/paginator';
-import {MatSortModule} from '@angular/material/sort';
-import {MatButtonModule} from '@angular/material/button';
-import {MatCardModule} from '@angular/material/card';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
-import {MatTableModule} from '@angular/material/table';
-import {MatIconModule} from '@angular/material/icon';
+// Material
+import { MatInputModule } from '@angular/material/input';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatTableModule } from '@angular/material/table';
+import { MatIconModule } from '@angular/material/icon';
 
 // app.module.ts -> auhutils.ts.initFirebaseBackend (environment.ts.firebaseConfig)
 
 if (environment.defaultauth === 'firebase') {
-   initFirebaseBackend(environment.firebaseConfig);
+  initFirebaseBackend(environment.firebaseConfig);
 }
 
 
@@ -46,7 +46,8 @@ if (environment.defaultauth === 'firebase') {
     MessagesComponent,
     DashboardComponent,
     HeroSearchComponent,
-    HeroFormComponent
+    HeroFormComponent,
+    LoginComponent   // ngModule 要加進來，HTML template 才能使用
   ],
   imports: [
     BrowserModule,
@@ -54,16 +55,20 @@ if (environment.defaultauth === 'firebase') {
     AppRoutingModule,  // app-routing.module.ts
     HttpClientModule,
     // 以下是模擬 Http 遠端取得資料使用的服務
- //   HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService,{dataEncapsulation:false})
- MatInputModule,
- MatPaginatorModule,
- MatProgressSpinnerModule,
- MatSortModule,
- MatTableModule,
- MatIconModule,
- MatButtonModule,
- MatCardModule,
- MatFormFieldModule
+    //   HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService,{dataEncapsulation:false})
+
+    ReactiveFormsModule,
+    // Material
+    MatInputModule,
+    MatPaginatorModule,
+    MatProgressSpinnerModule,
+    MatSortModule,
+    MatTableModule,
+    MatIconModule,
+    MatButtonModule,
+    MatCardModule,
+    MatFormFieldModule,
+    BrowserAnimationsModule,
 
   ],
   providers: [],

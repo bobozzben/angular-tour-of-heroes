@@ -4,5 +4,7 @@
       routerLink="/detail/{{hero.id}}"> <!--使用 ruoterLink 連到到英雄詳細資料畫面-->
       {{hero.name}}
   </a>
+
+  <a mat-flat-button color="primary" [routerLink]="['/login']"><mat-icon>login</mat-icon>登入</a>
 </div>
 <app-hero-search></app-hero-search>

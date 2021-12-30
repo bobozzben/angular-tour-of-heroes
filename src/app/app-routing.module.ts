@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router'; // 匯入 RouterModule �
 import { HeroesComponent } from './heroes/heroes.component'; // 匯入 HeroesComponent，它將告訴路由器要去什麼地方
 import { HeroDetailComponent } from './hero-detail/hero-detail.component'; // 第五節儀表盤使用，可在網址上輸入id並導到該頁
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { LoginComponent } from './login/login.component';
 
 //這一部分是你的路由配置。 Routes 告訴路由器，當用戶單擊連結或將 URL 貼上進瀏覽器位址列時要顯示哪個檢視。
 //典型的 Angular Route 具有兩個屬性：
@@ -16,6 +17,7 @@ const routes: Routes = [
   { path: 'detail/:id', component: HeroDetailComponent }, // 可在網址上輸入id並導到該頁
   { path: 'detail2/:prono', component: HeroDetailComponent }, // prono 是參數名稱， 可在網址上輸入id並導到該頁
   { path: 'heroes', component: HeroesComponent }, // 英雄列表的頁面
+  { path: 'login', component: LoginComponent },  // 登入畫面
 ];
 
 @NgModule({ // @NgModule 元資料會初始化路由器，並開始監聽瀏覽器地址的變化。

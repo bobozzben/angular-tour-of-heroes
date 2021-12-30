@@ -9,17 +9,17 @@ import { HeroService } from './../hero.service';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit { // 匯出給外部使用的類
-  heroes:Hero[] = [];
+  heroes: Hero[] = [];
 
-  constructor(private heroService:HeroService) { }
+  constructor(private heroService: HeroService) { }
 
   ngOnInit(): void {
     this.getHeroes();
   }
 
-  getHeroes() :void {
+  getHeroes(): void {
     this.heroService.getHeroes()
-      .subscribe(heroes => this.heroes = heroes.slice(0,4)); // Top 5
+      .subscribe(heroes => this.heroes = heroes.slice(0, 4)); // Top 5
   }
 
 }
