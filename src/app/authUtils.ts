@@ -1,7 +1,6 @@
 import { FirebaseOptions, getApp, initializeApp } from "firebase/app";
 import { getAuth, createUserWithEmailAndPassword, Auth } from "firebase/auth";
 import { signInWithEmailAndPassword ,sendPasswordResetEmail} from "firebase/auth";
-import { User } from "./app.module";
 
 
 class FirebaseAuthBackend {
