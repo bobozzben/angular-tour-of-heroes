@@ -1,5 +1,5 @@
-import { FirebaseOptions, getApp, initializeApp } from "firebase/app";
-import { getAuth, createUserWithEmailAndPassword, Auth } from "firebase/auth";
+import { FirebaseOptions,  initializeApp } from "firebase/app";
+import { getAuth, createUserWithEmailAndPassword  } from "firebase/auth";
 import { signInWithEmailAndPassword ,sendPasswordResetEmail} from "firebase/auth";
 
 
@@ -14,12 +14,16 @@ class FirebaseAuthBackend {
           getAuth(this.firebase).onAuthStateChanged((user) => {
               if (user) {
                   sessionStorage.setItem('authUser', JSON.stringify(user));
+                  console.log("authUser Loggeed");
               } else {
                   sessionStorage.removeItem('authUser');
+                  console.log("fail Login");
               }
           });
       }
   }
+
+
 
   /**
    * Registers the user with given details
@@ -74,8 +78,10 @@ class FirebaseAuthBackend {
   logout = () => {
       return new Promise((resolve, reject) => {
         getAuth(this.firebase).signOut().then(() => {
+          console.log("authUser Logout");
               resolve(true);
           }).catch((error) => {
+            console.log("authUser error");
               reject(this._handleError(error));
           });
       });
@@ -84,6 +90,7 @@ class FirebaseAuthBackend {
   setLoggeedInUser = (user: any) => {
       sessionStorage.setItem('authUser', JSON.stringify(user));
   }
+
 
   /**
    * Returns the authenticated user
@@ -129,3 +136,6 @@ const getFirebaseBackend = () => {
 };
 
 export { initFirebaseBackend, getFirebaseBackend };
+
+
+
