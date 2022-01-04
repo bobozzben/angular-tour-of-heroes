@@ -23,7 +23,7 @@ export class HeroService {
   private heroesUpdateUrl = this.myurl + '/app/1';
   httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json;charset=UTF-8' }) };
 
-  constructor(private http: HttpClient,   //使用 HttpClient
+  constructor(private http: HttpClient,   //使用 HttpClient App.Module.ts 也要 import 進來
     private messageService: MessageService) { }  //建構函式，注入其他的 Service (一個典型的“服務中的服務”場景)
 
   public log(message: string) {
