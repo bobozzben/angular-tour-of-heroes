@@ -17,10 +17,10 @@ export class HeroService {
   // 注意：伺服器必須開啟 跨域資源共享 (CORS) 允許您的 Web 服務器接受和服務來自其他域的請求
   // private heroesUrl = 'api/heroes';
   // private myurl = "https://1a46-111-240-114-204.ngrok.io";  //windows
-  private myurl = "https://2e77-2001-b011-3001-36e1-4f59-d720-4f2c-fa1e.ngrok.io";  // ubuntu
-  private heroesUrl = this.myurl + '/app?kind=1&prx=DM&xg3=33';
-  private locateheroesUrl = this.myurl +'/app?kind=1';
-  private heroesUpdateUrl = this.myurl + '/app/1';
+  private myurl = "https://1300-111-240-111-98.ngrok.io";  // ubuntu
+  private heroesUrl = this.myurl + '/app2?kind=1&prx=DM&xg3=33';
+  private locateheroesUrl = this.myurl +'/app2?kind=1';
+  private heroesUpdateUrl = this.myurl + '/app2/1';
   httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json;charset=UTF-8' }) };
 
   constructor(private http: HttpClient,   //使用 HttpClient App.Module.ts 也要 import 進來

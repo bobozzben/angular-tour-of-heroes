@@ -16,14 +16,14 @@
 <div>
   <label for="new-hero">Product name: </label>
   <input id="new-hero" #heroName />
-  <button class="add-button" (click)="add(heroName.value); heroName.value=''" > Add hero </button>
+  <button class="add-button" (click)="add(heroName.value); heroName.value=''"> Add hero </button>
 </div>
 
 
 <div>
   <label for="searchprod">Locate for product name: </label>
   <input id="searchprod" #searchprod />
-  <button class="search-button" (click)="search(searchprod.value); searchprod.value=''" > 尋找 </button>
+  <button class="search-button" (click)="search(searchprod.value); searchprod.value=''"> 尋找 </button>
 </div>
 
 <!--加入 Click 事件並顯示細項資料，[class.selected]是指定被點選後的CSS樣式 -->
@@ -40,7 +40,7 @@
     </a>
   </li>
 </ul>
-<table class="">
+<table class="mytable">
   <thead class="thead-dark">
     <tr>
       <th>序</th>
@@ -51,18 +51,18 @@
     </tr>
   </thead>
   <tbody *ngFor="let hero of heroes">
-      <tr>
-        <th class="badge" scope="row">{{hero.id}}</th>
-        <td><a routerLink="/detail2/{{hero.prono}}"> {{hero.prono}} </a></td>
-        <td><a routerLink="/detail2/{{hero.prono}}"> {{hero.name}} </a></td>
-        <td align="right">{{hero.finqty | number}}</td>
-        <td align="right">{{hero.usedqty |number}}</td>
-      </tr>
-    </tbody>
+    <tr>
+      <th class="badge" scope="row">{{hero.id}}</th>
+      <td><a routerLink="/detail2/{{hero.prono}}"> {{hero.prono}} </a></td>
+      <td><a routerLink="/detail2/{{hero.prono}}"> {{hero.name}} </a></td>
+      <td class="td-align-right">{{hero.finqty | number}}</td>
+      <td class="td-align-right">{{hero.usedqty | number}}</td>
+    </tr>
+  </tbody>
 
   <tbody>
 
-  </table>
+</table>
 <!--使用 ngIf 檢查資料 undefined 時不要加入 DOM -->
 <!-- 第3節建立元件，將小功能獨立一個 component 的範例，此塊移至 hero-detail
 <div *ngIf="selectedHero">
@@ -77,4 +77,3 @@
 <!-- [hero]="selectedHero" 是單向繫結，由自已的屬性放到另一個元件的屬性，這裏是由 HeroesComponent.selectedHero
     HeroDetailComponent.hero   -->
 <!--  <app-hero-detail [hero]="selectedHero"></app-hero-detail> 第五節不用 -->
-
