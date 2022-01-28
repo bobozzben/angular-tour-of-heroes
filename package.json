@@ -1,6 +1,7 @@
 {
   "name": "angular-tour-of-heroes",
   "version": "0.0.0",
+  "subpath" : "./*",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
