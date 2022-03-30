@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';  // 匯入 RxJS 函式庫 以便使用 HeetClient
+import { Observable, of } from 'rxjs';  // 匯入 RxJS 函式庫 以便使用 HttpClient
 import { HttpClient, HttpHeaders } from '@angular/common/http';  //使用 HttpClient
 import { catchError, map, tap } from 'rxjs/operators';
 
